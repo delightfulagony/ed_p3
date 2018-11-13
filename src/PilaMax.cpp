@@ -22,20 +22,45 @@ PilaMax::~PilaMax() {
 }
 
 template <class T>
-PilaMax::T verPila() {
+T PilaMax::verPila() {
 	return pila[pila.dimension()-1];
 }
 
 template <class T>
-PilaMax::T verMax() {
+T PilaMax::verMax() {
 	return max[max.dimension()-1];
 }
 
 template <class T>
-PilaMax::insertar(const T &t) {
-	pila.redimensionar(pila.dimension()+1);
+bool PilaMax::insertar(const T &t) {
+	int aux = 1;
+	aux = pila.redimensionar(pila.dimension()+1);
 	pila.asignar_componente(pila.dimension-1,t);
-	max.redimensionar(max.dimension()+1);
+	aux = max.redimensionar(max.dimension()+1);
 	max.asignar_componente(max.dimension()-1,(t<verMax()?verMax:t));
+	
+	return aux==0?true:false;
 }
 
+template <class T>
+bool PilaMax::sacar() {
+	int aux = 1;
+	aux = pila.redimensionar(pila.dimension()-1);
+	aux = max.redimensionar(max.dimension()-1);
+	
+	return aux==0?true:false;
+}
+
+template <class T>
+bool PilaMax::borrar() {
+	int aux = 1;
+	aux = pila.redimensionar(0);
+	aux = max.redimensionar(0);
+		
+	return aux==0?true:false;
+}
+
+template <class T>
+bool PilaMax::esVacia() {
+	return pila.dimension()==0?true:false;
+}
