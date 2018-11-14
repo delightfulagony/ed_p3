@@ -34,7 +34,7 @@ VTEST = $(DATA)/vtest.txt
 all: $(PROJECT) help author
 
 $(PROJECT): $(OBJ)/PilaMax.o $(OBJ)/VDG.o $(OBJ)/$(PROJECT).o
-	mkdir -p $(BIN)
+	-mkdir -p $(BIN) 
 	$(CC) $(FLAGS) -o $(BIN)/$(PROJECT) $?
 
 $(OBJ)/VDG.o: $(SRC)/VDG.cpp $(INC)/VDG.h
@@ -58,8 +58,7 @@ doxy:
 	firefox & $(DOC)/html/index.html
 
 tar: clean
-	cd ..
-	prompt% tar zcv $(PROJECT).tgz ed_p3
+	cd .. && prompt% tar zcv $(PROJECT).tgz ed_p3
 	
 valgrind: $(PROJECT)
 	valgrind $(VFLAGS) $(BIN)/$(PROJECT) $(VTEST)
