@@ -89,10 +89,10 @@ $(DOCUMENTATION):
 	@rm -rf $(DOC)html $(DOC)latex
 	@$(DOCUMENTATION) $(DOC)$(PROJECT).doxy
 	@echo "${BOLD}Abriendo documentación...${RESET}"
-	@firefox & $(DOC)html/index.html
+	@$(BROWSER) & $(DOC)html/index.html
 
-tar: clean
-	tar zcv $(PROJECT).tgz ../ed_p3
+$(COMPRESS): clean
+	$(COMPRESS) -cvzf ../$(PROJECT).tgz ../ed_p3
 	
 valgrind: $(PROJECT)
 	valgrind $(VFLAGS) ./$(EXEC)

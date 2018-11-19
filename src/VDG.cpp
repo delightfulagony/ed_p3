@@ -45,33 +45,28 @@ VectorDinamico<T>::~VectorDinamico()
 
 
 template <class T>
-int 
-VectorDinamico<T>::redimensionar(int num_elem)
-{
-  int i, min;
+int VectorDinamico<T>::redimensionar(int num_elem) {
+	int i, min;
 
-  /* Si piden el mismo tamaño que tiene: no hacer nada */
-  if (num_elem == num_comp)
-    return 0;
+	/* Si piden el mismo tamaño que tiene: no hacer nada */
+	if (num_elem == num_comp)
+		return 0;
 
-  /* Reserva nuevo espacio */
-  T * p = new T [num_elem];
-  if (p == 0)
-    return 1;
+	/* Reserva nuevo espacio */
+	T * p = new T [num_elem];
+	if (p == 0)
+		return 1;
 
-  /* Si el vector estaba vacío, simplemente iniciar a 0 */
-  if (num_comp == 0)
-    return 0;
-
-  /* Copiar los componentes que se mantienen */
-  min = (num_comp < num_elem ? num_comp : num_elem);
-  for (i = 0; i < min; i++)
-    p[i] = datos[i];
-
-  delete(datos);
-  datos = p;
-  num_comp = num_elem;
-  return 0;
+	/* Copiar los componentes que se mantienen */
+	if (num_comp>0) {
+		min = (num_comp<num_elem?num_comp:num_elem);
+		for (i = 0; i < min; i++)
+			p[i] = datos[i];
+	}
+	delete(datos);
+	datos = p;
+	num_comp = num_elem;
+	return 0;
 }
 
 

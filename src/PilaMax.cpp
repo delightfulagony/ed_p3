@@ -27,30 +27,18 @@ PilaMax<T>::PilaMax(const T &t) {
 }
 
 template <class T>
-T PilaMax<T>::verPila() {
-	T aux = pila[pila.dimension()-1];
-	return aux;
-}
-
-template <class T>
-T PilaMax<T>::verMax() {
-	T aux = max[max.dimension()-1];
-	return aux;
-}
-
-template <class T>
-size_t PilaMax<T>::verNumElementos() const {
-	size_t aux = pila.dimension();
-	return aux;
-}
-
-template <class T>
 bool PilaMax<T>::insertar(const T &t) {
 	int aux = 1;
-	aux = pila.redimensionar(pila.dimension()+1);
+	if (pila.dimension()>0) {
+		aux = pila.redimensionar(pila.dimension()+1);
+		aux = max.redimensionar(max.dimension()+1);
+	} else {
+		aux = pila.redimensionar(1);
+		aux = max.redimensionar(1);
+	}
+	T maximo = t<verMax()?verMax():t;
 	pila.asignar_componente(pila.dimension()-1,t);
-	aux = max.redimensionar(max.dimension()+1);
-	max.asignar_componente(max.dimension()-1,(t<verMax()?verMax():t));
+	max.asignar_componente(max.dimension()-1,maximo);
 	
 	return aux==0?true:false;
 }
@@ -67,9 +55,9 @@ bool PilaMax<T>::sacar() {
 template <class T>
 bool PilaMax<T>::borrar(const int &n) {
 	int aux = 1;
-	if (n>0 && n<pila.dimension()) {
-		aux = pila.redimensionar(n);
-		aux = max.redimensionar(n);
+	if (n>=0 && n<pila.dimension()) {
+		aux = pila.redimensionar(pila.dimension()-n);
+		aux = max.redimensionar(pila.dimension()-n);
 	} else {
 		aux = pila.redimensionar(0);
 		aux = max.redimensionar(0);

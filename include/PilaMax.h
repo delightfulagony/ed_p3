@@ -38,17 +38,17 @@ public:
 	 * @brief Observador de la pila, con posibilidad de modificación
 	 * @return Devuelve el último elemento de la pila
 	 */
-	T verPila();
+	T verPila() {return pila[pila.dimension()-1];}
 	/**
 	 * @brief Observador de max, con posibilidad de modificación
 	 * @return Valor max del último elemento de la pila
 	 */
-	T verMax();
+	T verMax() {return max[max.dimension()-1];}
 	/**
 	 * @brief Observador del número de elementos de la pila
 	 * @return El número de elementos de la pila
 	 */
-	size_t verNumElementos() const;
+	size_t verNumElementos() const {return pila.dimension();}
 	/**
 	 * @brief Añade un elemento a la pila
 	 * @param t Elemento a añadir
@@ -71,7 +71,7 @@ public:
 	  * 	@retval true Si ha tenido éxito 
 	  *	@retval false Si ha habido algun error
 	  */
-	 bool borrar(const int &n=0);
+	 bool borrar(const int &n=-1);
 	 /**
 	  * @brief Comprueba si la pila es vacía
 	  * @return 
