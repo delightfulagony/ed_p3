@@ -1,83 +1,121 @@
-# Makefile de la práctica 3 para la asignatura de Estructura de Datos del DGIIM
-# Autores:
-# 	- Manuel Gachs Ballegeer
-# 	- Gonzalo Moreno Soto
-# Esta práctica esta bajo la licencia GPLv3
+# Compilador y flags
+CXX := g++
+CXXFLAGS := -g
+VFLAGS := --leak-check=full
 
 # Nombre del proyecto
-PROJECT = pila_max
-
-# Compilador usado y flags
-CC = g++
-FLAGS = -Wall -g
+PROJECT := pila_max
 
 # Directorios del proyecto
-INC = ./include
-SRC = ./src
-OBJ = ./obj
-DOC = ./doc
-BIN = ./bin
-DATA = ./data
-ZIP = ./zip
+OBJ := obj/
+DOC := doc/
+BIN := bin/
 
-# Valgrind flags
-VFLAGS = --leak-check=full
+# Archivos del proyecto
+EXEC = $(BIN)$(PROJECT)
+MAIN = main.cpp
+MAINOBJ = $(MAIN:.cpp=.o)
+SOURCES := VDG.cpp PilaMax.cpp
+HEADERS = $(SOURCES:.cpp=.h)
 
-## Tests
-# Test a ejecutar con 'make test'
-TEST = $(DATA)/test.txt
-#Test de valgrind
-VTEST = $(DATA)/vtest.txt
+# Otras variables
+DOCUMENTATION = doxygen
+BROWSER = firefox
+COMPRESS = tar
+BOLD = `tput bold`
+GREEN = `tput setaf 2`
+RESET = `tput sgr0`
 
-#Reglas
+# Variables definidas
+define makebin =
+@echo "Creando el ejecutable $@ ..."
+@$(CXX) $(CXXFLAGS) -o $@ $^
+@-mv $^ $(OBJ)
+@echo "${GREEN}HECHO${RESET}"
+endef
+define makeobj =
+@echo "Creando el objeto $@ ..."
+@$(CXX) $(CXXFLAGS) -o $@ $<
+@echo "${GREEN}HECHO${RESET}"
+endef
+define makedir =
+@echo "Creando carpeta $@ ..."
+@mkdir -p $@
+@echo "${GREEN}HECHO${RESET}"
+endef
+define erase =
+@echo "Borrando ejecutable..."
+@-rm -rf $(BIN)
+@echo "Borrando objetos..."
+@-rm -rf $(OBJ)
+@echo "Borrando documentación..."
+@rm -rf $(DOC)html $(DOC)latex
+@echo "${GREEN}HECHO${RESET}"
+endef
 
-all: $(PROJECT) help author
+# Directivas
+vpath %.h include/
+vpath %.cpp src/
+vpath %.o obj/
 
-$(PROJECT): $(OBJ)/PilaMax.o $(OBJ)/VDG.o $(OBJ)/$(PROJECT).o
-	-mkdir -p $(BIN) 
-	$(CC) $(FLAGS) -o $(BIN)/$(PROJECT) $?
+# Variables específicas a un patrón
+%.o: CXXFLAGS += -Wall -I./include -I./src -c
 
-$(OBJ)/VDG.o: $(SRC)/VDG.cpp $(INC)/VDG.h
-	$(CC) -I$(INC) -c -o $@ $<
+# Reglas sin recetas
+all: $(EXEC) help author
+.PHONY: clean
+$(MAINOBJ): | $(OBJ)
+$(EXEC): | $(BIN)
 
-$(OBJ)/PilaMax.o: $(SRC)/PilaMax.cpp $(INC)/PilaMax.h
-	$(CC) -I$(INC) -c -o $@ $<
+# Reglas
 
-$(OBJ)/$(PROJECT).o: $(SRC)/$(PROJECT).cpp
-	$(CC) -I$(INC) -c -o $@ $<
+$(EXEC): $(MAINOBJ)
+	$(makebin)
 
-refresh: clean $(PROJECT)
+$(MAINOBJ): $(MAIN) $(HEADERS) $(SOURCES)
+	$(makeobj)
+	
+$(OBJ):
+	$(makedir)
+
+$(BIN):
+	$(makedir)
+
 
 clean:
-	rm $(BIN)/* $(OBJ)/*
-	rm -rf $(DOC)/html $(DOC)/latex
+	$(erase)
 
-doxy:
-	rm -rf $(DOC)/html $(DOC)/latex
-	doxygen $(DOC)/$(PROJECT).doxy
-	firefox & $(DOC)/html/index.html
+$(DOCUMENTATION):
+	@rm -rf $(DOC)html $(DOC)latex
+	@$(DOCUMENTATION) $(DOC)$(PROJECT).doxy
+	@echo "${BOLD}Abriendo documentación...${RESET}"
+	@firefox & $(DOC)html/index.html
 
 tar: clean
-	cd .. && prompt% tar zcv $(PROJECT).tgz ed_p3
+	tar zcv $(PROJECT).tgz ../ed_p3
 	
 valgrind: $(PROJECT)
-	valgrind $(VFLAGS) $(BIN)/$(PROJECT) $(VTEST)
+	valgrind $(VFLAGS) ./$(EXEC)
 	
 help:
 	@echo "________________________________________________________________________________"
 	@echo "Lista de parámetros posibles:"
-	@echo "		refresh		Compila el proyecto desde cero"
-	@echo "		clean		Elimina los archivos objeto y ejecutables"
-	@echo "		doxy		Genera la documentación"
-	@echo "		tar		Genera el tgz del proyecto"
-	@echo "		valgrind	Realiza un test por medio de valgrind"
-	@echo "		test		Realiza un los test"
-	@echo "		help		Muestra esta ayuda"
-	@echo "		author		Información sobre el autor de este programa"
+	@echo "		${BOLD}clean${RESET}		\
+	Elimina los archivos objeto y ejecutables"
+	@echo "		${BOLD}doxygen${RESET}		\
+	Genera la documentación"
+	@echo "		${BOLD}tar${RESET}		\
+	Genera el tgz del proyecto"
+	@echo "		${BOLD}valgrind${RESET}	\
+	Realiza una ejecución por medio de valgrind"
+	@echo "		${BOLD}help${RESET}		\
+	Muestra esta ayuda"
+	@echo "		${BOLD}author${RESET}		\
+	Información sobre el autor de este programa"
 	@echo "________________________________________________________________________________"
 
 author:
-	@echo "Este es un proyecto realizado por Gonzalo Moreno Soto (https://github.com/delightfulagony)"
-	@echo "y Manuel Gachs Ballegeer (https://github.com/Manuelbelgicano)" 
+	@echo "Este es un proyecto realizado por:"
+	@echo "		- Gonzalo Moreno Soto (https://github.com/delightfulagony)"
+	@echo "		- Manuel Gachs Ballegeer (https://github.com/Manuelbelgicano)" 
 	@echo "para la asignatura de Estructura de Datos de la Universidad de Granada"
-

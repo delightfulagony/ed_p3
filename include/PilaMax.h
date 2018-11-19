@@ -4,6 +4,8 @@
  * @author Gonzalo Moreno Soto
  */
 
+#include"VDG.h"
+
 #ifndef _PILAMAX_H
 #define _PILAMAX_H
 
@@ -14,7 +16,10 @@ private:
 	VectorDinamico<T> max;
 	void copiar(const PilaMax &copia);
 public:
-	// PilaMax() {}
+	/**
+	 * @brief Constructor por defecto
+	 */
+	PilaMax() {}
 	/** 
 	 * @brief Constructor por copia
 	 * @param copia PilaMax que se copia
@@ -28,18 +33,22 @@ public:
 	/**
 	 * @brief Destructor de la clase
 	 */
-	~PilaMax();
+	~PilaMax() {}
 	/**
-	 * @brief Observador de la pila
+	 * @brief Observador de la pila, con posibilidad de modificación
 	 * @return Devuelve el último elemento de la pila
 	 */
-	T verPila() const;
+	T verPila();
 	/**
-	 * @brief Observador de max
+	 * @brief Observador de max, con posibilidad de modificación
 	 * @return Valor max del último elemento de la pila
 	 */
-	T verMax() co
-	nst;
+	T verMax();
+	/**
+	 * @brief Observador del número de elementos de la pila
+	 * @return El número de elementos de la pila
+	 */
+	size_t verNumElementos() const;
 	/**
 	 * @brief Añade un elemento a la pila
 	 * @param t Elemento a añadir
@@ -62,20 +71,14 @@ public:
 	  * 	@retval true Si ha tenido éxito 
 	  *	@retval false Si ha habido algun error
 	  */
-	 bool borrar(const unsigned int &n=0);
+	 bool borrar(const int &n=0);
 	 /**
 	  * @brief Comprueba si la pila es vacía
 	  * @return 
 	  * 	@retval true Si es vacía
 	  *	@retval false Si no es vacía
 	  */ 
-	 bool esVacia() const;
-	 /**
-	  * @brief Sobrecarga del operador de asignacion
-	  * @param pila La pila que se quiere asginar
-	  * @return La pila con la asginacion realizada
-	  */
-	 PilaMax& operator=(const PilaMax<T> &pila);
+	 bool esVacia() const {return pila.dimension()==0?true:false;}
 };
 
 #include"PilaMax.cpp"

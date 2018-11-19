@@ -28,7 +28,7 @@ VectorDinamico<T>::VectorDinamico(int num_elem)
   datos = new T[num_elem];
   if (datos == 0)
     {
-      cerr << "Memoria Insuficiente\n";
+      std::cerr << "Memoria Insuficiente\n";
       exit(-1);
     }
   num_comp = num_elem;
