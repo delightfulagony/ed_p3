@@ -21,6 +21,11 @@
        'num_comp' objetos de la clase T.
  */
 
+template <class T>
+VectorDinamico<T>::VectorDinamico() {
+	datos = nullptr;
+	num_comp = 0;
+}
 
 template <class T>
 VectorDinamico<T>::VectorDinamico(int num_elem)
@@ -38,37 +43,45 @@ VectorDinamico<T>::VectorDinamico(int num_elem)
 template <class T>
 VectorDinamico<T>::~VectorDinamico()
 {
-  delete [] datos;
-  datos = 0;
-  num_comp = 0;
+	delete [] datos;
+	datos = nullptr;
+	num_comp = 0;
 }
 
 
 template <class T>
 int VectorDinamico<T>::redimensionar(int num_elem) {
 	int i, min;
-
-	/* Si piden el mismo tamaño que tiene: no hacer nada */
-	if (num_elem == num_comp)
+	
+	/* Si piden el mismo tamaño que tiene: no hacer nada
+	   Si piden tamaño 0: borrar el vector		     */
+	if (num_elem==num_comp)
 		return 0;
-
-	/* Reserva nuevo espacio */
-	T * p = new T [num_elem];
-	if (p == 0)
-		return 1;
-
-	/* Copiar los componentes que se mantienen */
-	if (num_comp>0) {
-		min = (num_comp<num_elem?num_comp:num_elem);
-		for (i = 0; i < min; i++)
-			p[i] = datos[i];
+	else if (num_elem==0) {
+		delete [] datos;
+		datos = nullptr;
+		num_comp = 0;
+		return 0;
 	}
-	delete(datos);
-	datos = p;
+	
+	/* Reserva nuevo espacio */
+	T p[num_elem];
+	if (p==0)
+		return 1;
+	
+	/* Copiar los elementos que se mantienen */
+	min = (num_comp<num_elem?num_comp:num_elem);
+	for (i=0;i<min;i++)
+		p[i] = datos[i];
+	
+	/* Borrar los antiguos datos e incorporar los nuevos */
+	delete [] datos;
+	datos = new T[num_elem];
+	for (i=0;i<min;i++)
+		datos[i] = p[i];
 	num_comp = num_elem;
 	return 0;
 }
-
 
 template <class T>
 int 
@@ -97,9 +110,7 @@ VectorDinamico<T>::asignar_componente(int i, const T & valor)
 
 
 template <class T>
-T &
-VectorDinamico<T>::operator[](int i)
-{
+T & VectorDinamico<T>::operator[](int i) {
   assert (0 <= i && i < num_comp);
 
   return datos[i];

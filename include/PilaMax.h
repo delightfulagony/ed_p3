@@ -12,14 +12,15 @@
 template <class T>
 class PilaMax {
 private:
-	VectorDinamico<T> pila;
-	VectorDinamico<T> max;
-	void copiar(const PilaMax &copia);
+	unsigned int elementos; ///> Número de elementos de la pila
+	VectorDinamico<T> pila; ///> Pila per-sé
+	VectorDinamico<T> max; ///> Pila donde se guarda el máximo de la pila
+	void copiar(const PilaMax &copia); ///> Copia una pila en otra
 public:
 	/**
 	 * @brief Constructor por defecto
 	 */
-	PilaMax() {}
+	PilaMax();
 	/** 
 	 * @brief Constructor por copia
 	 * @param copia PilaMax que se copia
@@ -38,17 +39,17 @@ public:
 	 * @brief Observador de la pila, con posibilidad de modificación
 	 * @return Devuelve el último elemento de la pila
 	 */
-	T verPila() {return pila[pila.dimension()-1];}
+	T verPila() {return pila[elementos-1];}
 	/**
 	 * @brief Observador de max, con posibilidad de modificación
 	 * @return Valor max del último elemento de la pila
 	 */
-	T verMax() {return max[max.dimension()-1];}
+	T verMax() {return max[elementos-1];}
 	/**
 	 * @brief Observador del número de elementos de la pila
 	 * @return El número de elementos de la pila
 	 */
-	size_t verNumElementos() const {return pila.dimension();}
+	size_t verNumElementos() const {return elementos;}
 	/**
 	 * @brief Añade un elemento a la pila
 	 * @param t Elemento a añadir
@@ -71,14 +72,14 @@ public:
 	  * 	@retval true Si ha tenido éxito 
 	  *	@retval false Si ha habido algun error
 	  */
-	 bool borrar(const int &n=-1);
+	 bool borrar(const unsigned int &n=-1);
 	 /**
 	  * @brief Comprueba si la pila es vacía
 	  * @return 
 	  * 	@retval true Si es vacía
 	  *	@retval false Si no es vacía
 	  */ 
-	 bool esVacia() const {return pila.dimension()==0?true:false;}
+	 bool esVacia() const {return elementos==0?true:false;}
 };
 
 #include"PilaMax.cpp"

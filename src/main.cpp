@@ -64,10 +64,12 @@ void ejemploPilas(const size_t& tipo) {
 		PilaMax<int> pila;
 		size_t aux = 1;
 		bool correcto = true;
-		for (size_t i=1;i<11;i++) 
+		for (size_t i=1;i<11;i++) {
 			pila.insertar(i);
-
-		std::cout<<"La pila tiene "<<pila.verNumElementos()<<" elementos\n";
+		}
+			
+		std::cout<<"\nLa pila tiene "<<pila.verNumElementos()<<" elementos\n";
+		std::cout<<"El ultimo elemento de la pila es: "<<pila.verPila()<<std::endl;
 		std::cout<<"El maximo de la pila es "<<pila.verMax()<<std::endl;
 		
 		std::cout<<"Elementos a borrar de la pila: ";
@@ -78,8 +80,12 @@ void ejemploPilas(const size_t& tipo) {
 			return;
 		}
 		
-		std::cout<<"El ultimo elemento de la pila es "<<pila.verPila()<<std::endl;
-		std::cout<<"El maximo de la pila es "<<pila.verMax()<<std::endl;
+		if (!pila.esVacia()) {
+			std::cout<<"\nLa pila tiene "<<pila.verNumElementos()<<" elementos\n";
+			std::cout<<"El ultimo elemento de la pila es: "<<pila.verPila()<<std::endl;
+			std::cout<<"El maximo de la pila es "<<pila.verMax()<<std::endl;
+		} else
+			std::cout<<"La pila esta ahora vacia\n";
 		
 		std::cout<<"Introduce un numero en la pila: ";
 		std::cin>>aux;
@@ -88,8 +94,11 @@ void ejemploPilas(const size_t& tipo) {
 			std::cout<<"Error al insertar un elemento en la pila\n";
 			return;
 		}
-		std::cout<<"La pila tiene "<<pila.verNumElementos()<<" elementos\n";
+		
+		std::cout<<"\nLa pila tiene "<<pila.verNumElementos()<<" elementos\n";
+		std::cout<<"El ultimo elemento de la pila es: "<<pila.verPila()<<std::endl;
 		std::cout<<"El maximo de la pila es "<<pila.verMax()<<std::endl;
+		
 	} else if (tipo==2) {
 		std::cout<<"Se creara una pila con los caracteres del intervalo [a-j]\n";
 		PilaMax<char> pila;
@@ -99,7 +108,8 @@ void ejemploPilas(const size_t& tipo) {
 		for (char i='a';i<='j';i++) 
 			pila.insertar(i);
 			
-		std::cout<<"La pila tiene "<<pila.verNumElementos()<<" elementos\n";
+		std::cout<<"\nLa pila tiene "<<pila.verNumElementos()<<" elementos\n";
+		std::cout<<"El ultimo elemento de la pila es: "<<pila.verPila()<<std::endl;
 		std::cout<<"El maximo de la pila es "<<pila.verMax()<<std::endl;
 		
 		std::cout<<"Elementos a borrar de la pila: ";
@@ -110,8 +120,12 @@ void ejemploPilas(const size_t& tipo) {
 			return;
 		}
 		
-		std::cout<<"El ultimo elemento de la pila es "<<pila.verPila()<<std::endl;
-		std::cout<<"El maximo de la pila es "<<pila.verMax()<<std::endl;
+		if (!pila.esVacia()) {
+			std::cout<<"\nLa pila tiene "<<pila.verNumElementos()<<" elementos\n";
+			std::cout<<"El ultimo elemento de la pila es: "<<pila.verPila()<<std::endl;
+			std::cout<<"El maximo de la pila es "<<pila.verMax()<<std::endl;
+		} else
+			std::cout<<"La pila esta ahora vacia\n";
 		
 		std::cout<<"Introduce una letra en la pila: ";
 		std::cin>>letra;
@@ -120,7 +134,9 @@ void ejemploPilas(const size_t& tipo) {
 			std::cout<<"Error al insertar un elemento en la pila\n";
 			return;
 		}
-		std::cout<<"La pila tiene "<<pila.verNumElementos()<<" elementos\n";
+		
+		std::cout<<"\nLa pila tiene "<<pila.verNumElementos()<<" elementos\n";
+		std::cout<<"El ultimo elemento de la pila es: "<<pila.verPila()<<std::endl;
 		std::cout<<"El maximo de la pila es "<<pila.verMax()<<std::endl;	
 		}
 	

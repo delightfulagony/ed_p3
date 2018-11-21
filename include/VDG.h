@@ -28,7 +28,7 @@ public:
 	/**
 	 * @brief Constructor por defecto
 	 */
-	VectorDinamico() {num_comp=0;}
+	VectorDinamico();
 	/**
 	Constructor: crea un vector dinámico.
 
