@@ -74,7 +74,7 @@ $(EXEC): $(MAINOBJ)
 
 $(MAINOBJ): $(MAIN) $(HEADERS) $(SOURCES)
 	$(makeobj)
-	
+
 $(OBJ):
 	$(makedir)
 
