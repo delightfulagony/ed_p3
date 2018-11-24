@@ -1,7 +1,10 @@
 /**
  * @file PilaMax.h
+ * @brief Fichero de cabecera del TDA PilaMax
  * @author Manuel Gachs Ballegeer
  * @author Gonzalo Moreno Soto
+ * @date Noviembre 2018
+ * @license GPLv3
  */
 
 #include"VDG.h"
@@ -9,6 +12,15 @@
 #ifndef _PILAMAX_H
 #define _PILAMAX_H
 
+/**
+ * @brief T.D.A. PilaMax
+ * Una instancia @e c del tipo de dato abstracto @c cronologia es un objeto
+ * que representa una pila de datos junto con el valor maximo que se ha dado
+ * en la pila
+ * @author Manuel Gachs Ballegeer
+ * @author Gonzalo Moreno Soto
+ * @date Noviembre 2018
+ */
 template <class T>
 class PilaMax {
 private:

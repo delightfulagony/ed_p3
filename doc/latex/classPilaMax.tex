@@ -1,0 +1,377 @@
+\hypertarget{classPilaMax}{}\section{Referencia de la plantilla de la Clase Pila\+Max$<$ T $>$}
+\label{classPilaMax}\index{Pila\+Max$<$ T $>$@{Pila\+Max$<$ T $>$}}
+
+
+T.\+D.\+A. \mbox{\hyperlink{classPilaMax}{Pila\+Max}} Una instancia {\itshape c} del tipo de dato abstracto {\ttfamily cronologia} es un objeto que representa una pila de datos junto con el valor maximo que se ha dado en la pila.  
+
+
+
+
+{\ttfamily \#include $<$Pila\+Max.\+h$>$}
+
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPilaMax_a75df9c3622957f933f913b2f09d7bca3}{Pila\+Max}} ()
+\begin{DoxyCompactList}\small\item\em \begin{quote}
+Copia una pila en otra \end{quote}
+\end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPilaMax_a1914e19e78e389744e898a44e1308a25}{Pila\+Max}} (const \mbox{\hyperlink{classPilaMax}{Pila\+Max}} \&copia)
+\begin{DoxyCompactList}\small\item\em Constructor por copia. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPilaMax_a6d3aa1ef82b270c7a3c827eac9324497}{Pila\+Max}} (const T \&t)
+\begin{DoxyCompactList}\small\item\em Constructor por parametros. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classPilaMax_aa6f6b406f7e8cc99a0123bb174f4d7b7}\label{classPilaMax_aa6f6b406f7e8cc99a0123bb174f4d7b7}} 
+\mbox{\hyperlink{classPilaMax_aa6f6b406f7e8cc99a0123bb174f4d7b7}{$\sim$\+Pila\+Max}} ()
+\begin{DoxyCompactList}\small\item\em Destructor de la clase. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classPilaMax_a106ddeebac120bce70bf95ffd59ebfc7}{ver\+Pila}} ()
+\begin{DoxyCompactList}\small\item\em Observador de la pila, con posibilidad de modificación. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classPilaMax_a24ae04b87304dbe6640d4e28ea875990}{ver\+Max}} ()
+\begin{DoxyCompactList}\small\item\em Observador de max, con posibilidad de modificación. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classPilaMax_aed2d236773d9232ceda548339bfe60b7}{ver\+Num\+Elementos}} () const
+\begin{DoxyCompactList}\small\item\em Observador del número de elementos de la pila. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPilaMax_a7569c21e5cd32d277f9f777209e2c67d}{insertar}} (const T \&t)
+\begin{DoxyCompactList}\small\item\em Añade un elemento a la pila. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPilaMax_a822a83071b786c454dc293635006e9ec}{sacar}} ()
+\begin{DoxyCompactList}\small\item\em Saca un elemento de la pila. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPilaMax_a2930d3f8ffd449ca8653c8dce8694917}{borrar}} (const unsigned int \&n=-\/1)
+\begin{DoxyCompactList}\small\item\em Borra la pila. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPilaMax_a41161f09d76d8e2851ff9424ced9bc68}{es\+Vacia}} () const
+\begin{DoxyCompactList}\small\item\em Comprueba si la pila es vacía. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+\subsubsection*{template$<$class T$>$\newline
+class Pila\+Max$<$ T $>$}
+
+T.\+D.\+A. \mbox{\hyperlink{classPilaMax}{Pila\+Max}} Una instancia {\itshape c} del tipo de dato abstracto {\ttfamily cronologia} es un objeto que representa una pila de datos junto con el valor maximo que se ha dado en la pila. 
+
+\begin{DoxyAuthor}{Autor}
+Manuel Gachs Ballegeer 
+
+Gonzalo Moreno Soto 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Fecha}
+Noviembre 2018 
+\end{DoxyDate}
+
+
+Definición en la línea 25 del archivo Pila\+Max.\+h.
+
+
+
+\subsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{classPilaMax_a75df9c3622957f933f913b2f09d7bca3}\label{classPilaMax_a75df9c3622957f933f913b2f09d7bca3}} 
+\index{Pila\+Max@{Pila\+Max}!Pila\+Max@{Pila\+Max}}
+\index{Pila\+Max@{Pila\+Max}!Pila\+Max@{Pila\+Max}}
+\subsubsection{\texorpdfstring{Pila\+Max()}{PilaMax()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classPilaMax}{Pila\+Max}}$<$ T $>$\+::\mbox{\hyperlink{classPilaMax}{Pila\+Max}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\begin{quote}
+Copia una pila en otra \end{quote}
+
+
+Constructor por defecto 
+
+Definición en la línea 23 del archivo Pila\+Max.\+cpp.
+
+
+\begin{DoxyCode}
+23                     \{
+24     elementos = 0;
+25 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classPilaMax_a1914e19e78e389744e898a44e1308a25}\label{classPilaMax_a1914e19e78e389744e898a44e1308a25}} 
+\index{Pila\+Max@{Pila\+Max}!Pila\+Max@{Pila\+Max}}
+\index{Pila\+Max@{Pila\+Max}!Pila\+Max@{Pila\+Max}}
+\subsubsection{\texorpdfstring{Pila\+Max()}{PilaMax()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classPilaMax}{Pila\+Max}}$<$ T $>$\+::\mbox{\hyperlink{classPilaMax}{Pila\+Max}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classPilaMax}{Pila\+Max}}$<$ T $>$ \&}]{copia }\end{DoxyParamCaption})}
+
+
+
+Constructor por copia. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em copia} & \mbox{\hyperlink{classPilaMax}{Pila\+Max}} que se copia \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 28 del archivo Pila\+Max.\+cpp.
+
+
+\begin{DoxyCode}
+28                                         \{
+29     copiar(copia);
+30 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classPilaMax_a6d3aa1ef82b270c7a3c827eac9324497}\label{classPilaMax_a6d3aa1ef82b270c7a3c827eac9324497}} 
+\index{Pila\+Max@{Pila\+Max}!Pila\+Max@{Pila\+Max}}
+\index{Pila\+Max@{Pila\+Max}!Pila\+Max@{Pila\+Max}}
+\subsubsection{\texorpdfstring{Pila\+Max()}{PilaMax()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classPilaMax}{Pila\+Max}}$<$ T $>$\+::\mbox{\hyperlink{classPilaMax}{Pila\+Max}} (\begin{DoxyParamCaption}\item[{const T \&}]{t }\end{DoxyParamCaption})}
+
+
+
+Constructor por parametros. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em t} & Primer valor de la pila \\
+\hline
+\end{DoxyParams}
+
+
+Definición en la línea 33 del archivo Pila\+Max.\+cpp.
+
+
+\begin{DoxyCode}
+33                               \{
+34     \mbox{\hyperlink{classPilaMax_a7569c21e5cd32d277f9f777209e2c67d}{insertar}}(t);
+35 \}
+\end{DoxyCode}
+
+
+\subsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{classPilaMax_a2930d3f8ffd449ca8653c8dce8694917}\label{classPilaMax_a2930d3f8ffd449ca8653c8dce8694917}} 
+\index{Pila\+Max@{Pila\+Max}!borrar@{borrar}}
+\index{borrar@{borrar}!Pila\+Max@{Pila\+Max}}
+\subsubsection{\texorpdfstring{borrar()}{borrar()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classPilaMax}{Pila\+Max}}$<$ T $>$\+::borrar (\begin{DoxyParamCaption}\item[{const unsigned int \&}]{n = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+
+
+Borra la pila. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em n} & Numero de elementos que se quieren borrar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & Si ha tenido éxito \\
+\hline
+{\em false} & Si ha habido algun error \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea 70 del archivo Pila\+Max.\+cpp.
+
+
+\begin{DoxyCode}
+70                                              \{
+71     \textcolor{keywordtype}{int} aux = 1;
+72     \textcolor{keywordflow}{if} (elementos>0 && n>=0) \{
+73         \textcolor{keywordflow}{if} (n<elementos) \{
+74             aux = pila.redimensionar(elementos-n);
+75             aux = max.redimensionar(elementos-n);
+76         \} \textcolor{keywordflow}{else} \{
+77             aux = pila.redimensionar(0);
+78             aux = pila.redimensionar(0);
+79         \}
+80         elementos -= n;
+81     \}
+82     \textcolor{keywordflow}{return} aux==0?\textcolor{keyword}{true}:\textcolor{keyword}{false};
+83 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classPilaMax_a41161f09d76d8e2851ff9424ced9bc68}\label{classPilaMax_a41161f09d76d8e2851ff9424ced9bc68}} 
+\index{Pila\+Max@{Pila\+Max}!es\+Vacia@{es\+Vacia}}
+\index{es\+Vacia@{es\+Vacia}!Pila\+Max@{Pila\+Max}}
+\subsubsection{\texorpdfstring{es\+Vacia()}{esVacia()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+bool \mbox{\hyperlink{classPilaMax}{Pila\+Max}}$<$ T $>$\+::es\+Vacia (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Comprueba si la pila es vacía. 
+
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & Si es vacía \\
+\hline
+{\em false} & Si no es vacía \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea 94 del archivo Pila\+Max.\+h.
+
+
+\begin{DoxyCode}
+94 \{\textcolor{keywordflow}{return} elementos==0?\textcolor{keyword}{true}:\textcolor{keyword}{false};\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classPilaMax_a7569c21e5cd32d277f9f777209e2c67d}\label{classPilaMax_a7569c21e5cd32d277f9f777209e2c67d}} 
+\index{Pila\+Max@{Pila\+Max}!insertar@{insertar}}
+\index{insertar@{insertar}!Pila\+Max@{Pila\+Max}}
+\subsubsection{\texorpdfstring{insertar()}{insertar()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classPilaMax}{Pila\+Max}}$<$ T $>$\+::insertar (\begin{DoxyParamCaption}\item[{const T \&}]{t }\end{DoxyParamCaption})}
+
+
+
+Añade un elemento a la pila. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em t} & Elemento a añadir \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & Si ha tenido éxito \\
+\hline
+{\em false} & Si ha habido algun error \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea 38 del archivo Pila\+Max.\+cpp.
+
+
+\begin{DoxyCode}
+38                                     \{
+39     \textcolor{keywordtype}{int} aux = 1;
+40     T maximo;
+41     \textcolor{keywordflow}{if} (elementos>=0) \{
+42         aux = pila.redimensionar(elementos+1);
+43         aux = max.redimensionar(elementos+1);
+44         elementos++;
+45         
+46         \textcolor{keywordflow}{if} (elementos==1)
+47             maximo = t;
+48         \textcolor{keywordflow}{else}
+49             maximo = t>=\mbox{\hyperlink{classPilaMax_a24ae04b87304dbe6640d4e28ea875990}{verMax}}()?t:\mbox{\hyperlink{classPilaMax_a24ae04b87304dbe6640d4e28ea875990}{verMax}}();        
+50         pila.asignar\_componente(elementos-1,t);
+51         max.asignar\_componente(elementos-1,maximo);
+52     \}
+53     
+54     \textcolor{keywordflow}{return} aux==0?\textcolor{keyword}{true}:\textcolor{keyword}{false};
+55 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classPilaMax_a822a83071b786c454dc293635006e9ec}\label{classPilaMax_a822a83071b786c454dc293635006e9ec}} 
+\index{Pila\+Max@{Pila\+Max}!sacar@{sacar}}
+\index{sacar@{sacar}!Pila\+Max@{Pila\+Max}}
+\subsubsection{\texorpdfstring{sacar()}{sacar()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{classPilaMax}{Pila\+Max}}$<$ T $>$\+::sacar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Saca un elemento de la pila. 
+
+\begin{DoxyReturn}{Devuelve}
+
+\end{DoxyReturn}
+
+\begin{DoxyRetVals}{Valores devueltos}
+{\em true} & Si ha tenido éxito \\
+\hline
+{\em false} & Si ha habido algun error \\
+\hline
+\end{DoxyRetVals}
+
+
+Definición en la línea 58 del archivo Pila\+Max.\+cpp.
+
+
+\begin{DoxyCode}
+58                        \{    
+59     \textcolor{keywordtype}{int} aux = 1;
+60     \textcolor{keywordflow}{if} (elementos>0) \{
+61         aux = pila.redimensionar(elementos-1);
+62         aux = max.redimensionar(elementos-1);
+63         elementos--;
+64     \}
+65     
+66     \textcolor{keywordflow}{return} aux==0?\textcolor{keyword}{true}:\textcolor{keyword}{false};
+67 \}
+\end{DoxyCode}
+\mbox{\Hypertarget{classPilaMax_a24ae04b87304dbe6640d4e28ea875990}\label{classPilaMax_a24ae04b87304dbe6640d4e28ea875990}} 
+\index{Pila\+Max@{Pila\+Max}!ver\+Max@{ver\+Max}}
+\index{ver\+Max@{ver\+Max}!Pila\+Max@{Pila\+Max}}
+\subsubsection{\texorpdfstring{ver\+Max()}{verMax()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+T \mbox{\hyperlink{classPilaMax}{Pila\+Max}}$<$ T $>$\+::ver\+Max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Observador de max, con posibilidad de modificación. 
+
+\begin{DoxyReturn}{Devuelve}
+Valor max del último elemento de la pila 
+\end{DoxyReturn}
+
+
+Definición en la línea 59 del archivo Pila\+Max.\+h.
+
+
+\begin{DoxyCode}
+59 \{\textcolor{keywordflow}{return} max[elementos-1];\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classPilaMax_aed2d236773d9232ceda548339bfe60b7}\label{classPilaMax_aed2d236773d9232ceda548339bfe60b7}} 
+\index{Pila\+Max@{Pila\+Max}!ver\+Num\+Elementos@{ver\+Num\+Elementos}}
+\index{ver\+Num\+Elementos@{ver\+Num\+Elementos}!Pila\+Max@{Pila\+Max}}
+\subsubsection{\texorpdfstring{ver\+Num\+Elementos()}{verNumElementos()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+size\+\_\+t \mbox{\hyperlink{classPilaMax}{Pila\+Max}}$<$ T $>$\+::ver\+Num\+Elementos (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Observador del número de elementos de la pila. 
+
+\begin{DoxyReturn}{Devuelve}
+El número de elementos de la pila 
+\end{DoxyReturn}
+
+
+Definición en la línea 64 del archivo Pila\+Max.\+h.
+
+
+\begin{DoxyCode}
+64 \{\textcolor{keywordflow}{return} elementos;\}
+\end{DoxyCode}
+\mbox{\Hypertarget{classPilaMax_a106ddeebac120bce70bf95ffd59ebfc7}\label{classPilaMax_a106ddeebac120bce70bf95ffd59ebfc7}} 
+\index{Pila\+Max@{Pila\+Max}!ver\+Pila@{ver\+Pila}}
+\index{ver\+Pila@{ver\+Pila}!Pila\+Max@{Pila\+Max}}
+\subsubsection{\texorpdfstring{ver\+Pila()}{verPila()}}
+{\footnotesize\ttfamily template$<$class T$>$ \\
+T \mbox{\hyperlink{classPilaMax}{Pila\+Max}}$<$ T $>$\+::ver\+Pila (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Observador de la pila, con posibilidad de modificación. 
+
+\begin{DoxyReturn}{Devuelve}
+Devuelve el último elemento de la pila 
+\end{DoxyReturn}
+
+
+Definición en la línea 54 del archivo Pila\+Max.\+h.
+
+
+\begin{DoxyCode}
+54 \{\textcolor{keywordflow}{return} pila[elementos-1];\}
+\end{DoxyCode}
+
+
+La documentación para esta clase fue generada a partir de los siguientes ficheros\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{PilaMax_8h}{Pila\+Max.\+h}}\item 
+src/Pila\+Max.\+cpp\end{DoxyCompactItemize}
